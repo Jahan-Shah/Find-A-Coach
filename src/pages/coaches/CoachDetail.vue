@@ -33,7 +33,7 @@ export default {
     },
   },
   created() {
-    const storedCoach = localStorage.getItem("selectedCoach");
+    const storedCoach = localStorage.getItem("selectedCoach") || false;
     if (storedCoach) {
       this.selectedCoach = JSON.parse(storedCoach);
     } else {
@@ -42,6 +42,9 @@ export default {
       );
       localStorage.setItem("selectedCoach", JSON.stringify(this.selectedCoach));
     }
+  },
+  unmounted() {
+    localStorage.removeItem("selectedCoach");
   },
 };
 </script>
