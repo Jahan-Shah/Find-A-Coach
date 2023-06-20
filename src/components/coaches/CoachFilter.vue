@@ -1,6 +1,6 @@
 <script>
 export default {
-  emits: ["change - filter"],
+  emits: ["change-filter"],
   date() {
     return {
       filters: {
