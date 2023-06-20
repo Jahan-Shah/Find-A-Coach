@@ -42,7 +42,7 @@ export default {
         this.description.isValid = false;
         this.formIsValid = false;
       }
-      if (!this.rate.val || this.rate.val < 0) {
+      if (!this.rate.val || this.rate.val < 5) {
         this.rate.isValid = false;
         this.formIsValid = false;
       }
@@ -95,8 +95,10 @@ export default {
 
     <div class="form-control" :class="{ invalid: !rate.isValid }">
       <label for="rate">Hourly Rate</label>
-      <input type="text" id="rate" v-model.number="rate.val" />
-      <p v-if="!rate.isValid">Rate should be more than 0</p>
+      <input type="number" id="rate" v-model.number="rate.val" />
+      <p v-if="!rate.isValid">
+        Hourly Rate should be a number and atleast or greater than 5
+      </p>
     </div>
 
     <div class="form-control" :class="{ invalid: !areas.isValid }">
@@ -131,7 +133,7 @@ export default {
 
     <p v-if="!formIsValid">Please fix the above error and submit again.</p>
 
-    <base-button>Register</base-button>
+    <BaseButton>Register</BaseButton>
   </form>
 </template>
 
